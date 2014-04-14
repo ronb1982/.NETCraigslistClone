@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CraigslistCloneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="StateAbbrev" Type="varchar" MaxLength="50" />
+    <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="ColumnId" Type="int" />
+  </EntityType>
+  <EntityType Name="Subcategories">
+    <Key>
+      <PropertyRef Name="SubCatId" />
+    </Key>
+    <Property Name="SubCatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="SubCatName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__States__CountryI__2A4B4B5E">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_us_states">
+    <End Role="States" Type="Self.States" Multiplicity="1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subcategories_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Subcategories" Type="Self.Subcategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Subcategories">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CraigslistCloneModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subcategories" EntityType="Self.Subcategories" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__States__CountryI__2A4B4B5E" Association="Self.FK__States__CountryI__2A4B4B5E">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_us_states" Association="Self.FK_City_us_states">
+      <End Role="States" EntitySet="States" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subcategories_Categories" Association="Self.FK_Subcategories_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Subcategories" EntitySet="Subcategories" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

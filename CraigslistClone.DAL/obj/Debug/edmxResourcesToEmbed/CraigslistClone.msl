@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CraigslistCloneModelStoreContainer" CdmEntityContainer="CraigslistCloneEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="CraigslistCloneModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="CraigslistCloneModel.City">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="CityName" ColumnName="City" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="CraigslistCloneModel.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="ColumnId" ColumnName="ColumnId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="StateAbbrev" ColumnName="StateAbbrev" />
+          <ScalarProperty Name="StateName" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subcategories">
+      <EntityTypeMapping TypeName="CraigslistCloneModel.Subcategory">
+        <MappingFragment StoreEntitySet="Subcategories">
+          <ScalarProperty Name="SubCatName" ColumnName="SubCatName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SubCatId" ColumnName="SubCatId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="CraigslistCloneModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

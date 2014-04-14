@@ -1,0 +1,16 @@
+﻿@model CraigslistClone.BLL.Models.CraigslistViewModel
+
+@{
+    ViewBag.Title = "About";
+}
+<div id="logo">.NET craigslist clone</div>
+<section class="body">
+    <div class="jump_to_continents">
+        @foreach (var c in Model.Countries)
+        {
+            @Html.ActionLink(@c.CountryName, null, null, new { href = "#" })
+        }
+    </div>
+    <div id="map" style="border: 1px solid #551A8B; background-color: #71A4CD;"></div>
+    @Html.DisplayFor(m => m.Countries, new { @States = Model.States, @Cities = Model.Cities})
+</section>

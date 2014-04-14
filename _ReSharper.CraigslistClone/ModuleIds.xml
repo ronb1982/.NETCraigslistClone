@@ -1,0 +1,5 @@
+<Modules>
+  <Module PersistentId="661B45F3-7655-4214-A8B9-D3ED89F3E32B" ModuleId="CraigslistClone.DAL" />
+  <Module PersistentId="6FB7141B-BC77-40CD-9644-3C7562C47B7A" ModuleId="CraigslistClone.BLL" />
+  <Module PersistentId="2983920D-AC0D-4343-83F9-313E5A392483" ModuleId="CraigslistClone.ConsoleUI" />
+</Modules>

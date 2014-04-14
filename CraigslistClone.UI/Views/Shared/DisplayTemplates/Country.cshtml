@@ -1,0 +1,44 @@
+﻿@using System.Web.Optimization
+@model CraigslistClone.BLL.Models.Country
+
+@{
+    var states = (List<CraigslistClone.BLL.Models.State>)ViewData["States"];
+}
+@Styles.Render("~/Content/css")
+
+<div>
+    <h1><a name="@Model.CountryName"></a>@Model.CountryName</h1>
+    @{
+        var firstGroup = from s in states
+                         where s.CountryId == Model.CountryId && (s.StateId >= 1 && s.StateId <= 12)
+                         select s;
+
+        var secondGroup = from s in states
+                          where s.CountryId == Model.CountryId && (s.StateId >= 13 && s.StateId <= 25)
+                          select s;
+
+        var thirdGroup = from s in states
+                         where s.CountryId == Model.CountryId && (s.StateId >= 26 && s.StateId <= 38)
+                         select s;
+
+        var lastGroup = from s in states
+                        where s.CountryId == Model.CountryId && (s.StateId >= 39)
+                        select s;
+
+                        <div class="colmask">
+                            <div class="box box_1">
+                                @Html.DisplayFor(m => firstGroup, ViewData["Cities"])
+                            </div>
+                            <div class="box box_2">
+                                @Html.DisplayFor(m => secondGroup, ViewData["Cities"])
+                            </div>
+                            <div class="box box_3">
+                                @Html.DisplayFor(m => thirdGroup, ViewData["Cities"])
+                            </div>
+                            <div class="box box_4">
+                                @Html.DisplayFor(m => lastGroup, ViewData["Cities"])
+                            </div>
+                        </div>
+
+    }
+</div>

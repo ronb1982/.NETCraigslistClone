@@ -1,0 +1,5 @@
+﻿@model CraigslistClone.BLL.Models.City
+
+
+<li>@Html.ActionLink(Model.CityName, "GetCityHomePage", "Subdomain", new { cityId = Model.CityId, city = Model.CityName.Replace('/', ' '), originalCityName = Model.CityName }, null)</li>
+

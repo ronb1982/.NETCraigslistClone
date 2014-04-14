@@ -1,0 +1,18 @@
+﻿@model CraigslistClone.BLL.Models.State
+
+@{
+    var cities = (List<CraigslistClone.BLL.Models.City>)ViewData["Cities"];
+}
+
+<h4>@Model.StateName</h4>
+
+@{
+    var citiesByState = from c in cities
+                        where c.StateId == Model.StateId
+                        select c;
+}
+
+<ul>
+    @Html.DisplayFor(m => citiesByState)
+</ul>
+

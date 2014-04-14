@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CraigslistCloneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="StateAbbrev" Type="varchar" MaxLength="50" />
+          <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="ColumnId" Type="int" />
+        </EntityType>
+        <EntityType Name="Subcategories">
+          <Key>
+            <PropertyRef Name="SubCatId" />
+          </Key>
+          <Property Name="SubCatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="SubCatName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__States__CountryI__2A4B4B5E">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="States" Type="Self.States" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="States">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_us_states">
+          <End Role="States" Type="Self.States" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subcategories_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Subcategories" Type="Self.Subcategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Subcategories">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CraigslistCloneModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subcategories" EntityType="Self.Subcategories" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__States__CountryI__2A4B4B5E" Association="Self.FK__States__CountryI__2A4B4B5E">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="States" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_us_states" Association="Self.FK_City_us_states">
+            <End Role="States" EntitySet="States" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subcategories_Categories" Association="Self.FK_Subcategories_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Subcategories" EntitySet="Subcategories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CraigslistCloneModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CraigslistCloneEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="CraigslistCloneModel.Category" />
+          <EntitySet Name="Cities" EntityType="CraigslistCloneModel.City" />
+          <EntitySet Name="States" EntityType="CraigslistCloneModel.State" />
+          <EntitySet Name="Subcategories" EntityType="CraigslistCloneModel.Subcategory" />
+          <AssociationSet Name="FK_Subcategories_Categories" Association="CraigslistCloneModel.FK_Subcategories_Categories">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Subcategory" EntitySet="Subcategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_us_states" Association="CraigslistCloneModel.FK_City_us_states">
+            <End Role="State" EntitySet="States" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <EntitySet Name="Countries" EntityType="CraigslistCloneModel.Country" />
+          <AssociationSet Name="FK__States__CountryI__2A4B4B5E" Association="CraigslistCloneModel.FK__States__CountryI__2A4B4B5E">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="State" EntitySet="States" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Subcategories" Relationship="CraigslistCloneModel.FK_Subcategories_Categories" FromRole="Category" ToRole="Subcategory" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="State" Relationship="CraigslistCloneModel.FK_City_us_states" FromRole="City" ToRole="State" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StateAbbrev" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Cities" Relationship="CraigslistCloneModel.FK_City_us_states" FromRole="State" ToRole="City" />
+          <Property Name="CountryId" Type="Int32" />
+          <NavigationProperty Name="Country" Relationship="CraigslistCloneModel.FK__States__CountryI__2A4B4B5E" FromRole="State" ToRole="Country" />
+          <Property Name="ColumnId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Subcategory">
+          <Key>
+            <PropertyRef Name="SubCatId" />
+          </Key>
+          <Property Name="SubCatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="SubCatName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category" Relationship="CraigslistCloneModel.FK_Subcategories_Categories" FromRole="Subcategory" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK_Subcategories_Categories">
+          <End Type="CraigslistCloneModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="CraigslistCloneModel.Subcategory" Role="Subcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Subcategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_us_states">
+          <End Type="CraigslistCloneModel.State" Role="State" Multiplicity="1" />
+          <End Type="CraigslistCloneModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="States" Relationship="CraigslistCloneModel.FK__States__CountryI__2A4B4B5E" FromRole="Country" ToRole="State" />
+        </EntityType>
+        <Association Name="FK__States__CountryI__2A4B4B5E">
+          <End Type="CraigslistCloneModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="CraigslistCloneModel.State" Role="State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CraigslistCloneModelStoreContainer" CdmEntityContainer="CraigslistCloneEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="CraigslistCloneModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="CraigslistCloneModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CityName" ColumnName="City" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="CraigslistCloneModel.State">
+              <MappingFragment StoreEntitySet="States">
+                <ScalarProperty Name="ColumnId" ColumnName="ColumnId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="StateAbbrev" ColumnName="StateAbbrev" />
+                <ScalarProperty Name="StateName" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subcategories">
+            <EntityTypeMapping TypeName="CraigslistCloneModel.Subcategory">
+              <MappingFragment StoreEntitySet="Subcategories">
+                <ScalarProperty Name="SubCatName" ColumnName="SubCatName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SubCatId" ColumnName="SubCatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="CraigslistCloneModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

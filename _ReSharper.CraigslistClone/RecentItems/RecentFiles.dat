@@ -1,0 +1,21 @@
+﻿<RecentFiles>
+  <RecentFiles>
+    <File id="2983920D-AC0D-4343-83F9-313E5A392483/f:App.config" caret="640" fromTop="7" />
+    <File id="6FB7141B-BC77-40CD-9644-3C7562C47B7A/d:Models/f:Category.cs" caret="354" fromTop="14" />
+    <File id="6FB7141B-BC77-40CD-9644-3C7562C47B7A/d:Models/f:Subcategory.cs" caret="290" fromTop="14" />
+    <File id="661B45F3-7655-4214-A8B9-D3ED89F3E32B/f:CraigslistClone.Context.cs" caret="748" fromTop="13" />
+    <File id="661B45F3-7655-4214-A8B9-D3ED89F3E32B/d:Repositories/f:CraigslistRepository.cs" caret="747" fromTop="11" />
+    <File id="2983920D-AC0D-4343-83F9-313E5A392483/f:Program.cs" caret="375" fromTop="12" />
+    <File id="661B45F3-7655-4214-A8B9-D3ED89F3E32B/d:Interfaces/f:ICraigslistRepository.cs" caret="227" fromTop="10" />
+    <File id="6FB7141B-BC77-40CD-9644-3C7562C47B7A/d:Models/f:CraigslistManager.cs" caret="571" fromTop="15" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="2983920D-AC0D-4343-83F9-313E5A392483/f:App.config" caret="640" fromTop="7" />
+    <File id="6FB7141B-BC77-40CD-9644-3C7562C47B7A/d:Models/f:Subcategory.cs" caret="264" fromTop="11" />
+    <File id="6FB7141B-BC77-40CD-9644-3C7562C47B7A/d:Models/f:Category.cs" caret="304" fromTop="12" />
+    <File id="2983920D-AC0D-4343-83F9-313E5A392483/f:Program.cs" caret="147" fromTop="2" />
+    <File id="661B45F3-7655-4214-A8B9-D3ED89F3E32B/d:Interfaces/f:ICraigslistRepository.cs" caret="227" fromTop="10" />
+    <File id="6FB7141B-BC77-40CD-9644-3C7562C47B7A/d:Models/f:CraigslistManager.cs" caret="366" fromTop="5" />
+    <File id="661B45F3-7655-4214-A8B9-D3ED89F3E32B/d:Repositories/f:CraigslistRepository.cs" caret="747" fromTop="11" />
+  </RecentEdits>
+</RecentFiles>

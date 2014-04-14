@@ -1,0 +1,14 @@
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\AutoMapper.Net4.dll
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\CraigslistClone.BLL.dll
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\CraigslistClone.BLL.pdb
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\AutoMapper.dll
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\CraigslistClone.DAL.dll
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\EntityFramework.dll
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\Ninject.dll
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\CraigslistClone.DAL.pdb
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\AutoMapper.xml
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\EntityFramework.xml
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\bin\Debug\Ninject.xml
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\obj\Debug\CraigslistClone.BLL.csprojResolveAssemblyReference.cache
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\obj\Debug\CraigslistClone.BLL.dll
+C:\Users\ronb1982\Documents\Visual Studio 2012\Projects\CraigslistClone\CraigslistClone.BLL\obj\Debug\CraigslistClone.BLL.pdb

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e635774224f143989f48f933c2e717e2" Name="Diagram1">
+        <EntityTypeShape EntityType="CraigslistCloneModel.Category" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="CraigslistCloneModel.City" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="CraigslistCloneModel.State" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="CraigslistCloneModel.Subcategory" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="CraigslistCloneModel.FK_Subcategories_Categories" />
+        <AssociationConnector Association="CraigslistCloneModel.FK_City_us_states" />
+        <EntityTypeShape EntityType="CraigslistCloneModel.Country" Width="1.5" PointX="0.75" PointY="7.125" />
+        <AssociationConnector Association="CraigslistCloneModel.FK__States__CountryI__2A4B4B5E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

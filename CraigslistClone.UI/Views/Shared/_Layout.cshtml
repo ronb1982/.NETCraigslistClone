@@ -1,0 +1,125 @@
+﻿@*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>*@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>craigslist > sites</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="List of all international craigslist.org online classifieds sites">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=1">
+    <link type="text/css" rel="stylesheet" media="all" href="//www.craigslist.org/styles/cl.css?v=49baf916eef7f86cd84731b2948dcd9f">
+    <link type="text/css" rel="stylesheet" media="all" href="//www.craigslist.org/styles/leaflet-stock.css?v=84d3c834332cbea762f0ab54db54c578">
+    <link type="text/css" rel="stylesheet" media="all" href="//www.craigslist.org/styles/MarkerCluster.css?v=b94c0e0f6bef79d2d992e3420553207b">
+    <!--[if lt IE 9]>
+    <script  src="//www.craigslist.org/js/html5shiv.min.js?v=42e8031bc7ca9d67a48f4a5feff7bf29" type="text/javascript" ></script>
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <script  src="//www.craigslist.org/js/json2.min.js?v=178d4ad319e0e0b4a451b15e49b71bec" type="text/javascript" ></script>
+    <![endif]-->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+
+<body class="sites">
+    <script type="text/javascript">
+<!--
+	function C(k){return(document.cookie.match('(^|; )'+k+'=([^;]*)')||0)[2]}
+	var pagetype, pagemode;
+	(function(){
+		var h = document.documentElement;
+		h.className = h.className.replace('nojs', '');
+		var b = document.body;
+		var bodyClassList = b.className.split(/\s+/);;
+		pagetype = bodyClassList[0];
+		var fmt = C('cl_fmt');
+		if (fmt) {
+			pagemode = fmt;
+			bodyClassList.push(fmt);
+		} else if (screen.width <= 480) {
+			pagemode = 'mobile';
+			bodyClassList.push(pagemode);
+		}
+		var width = window.innerWidth || document.documentElement.clientWidth;
+		if (width > 1000) { bodyClassList.push('w1024'); }
+		if (typeof catType !== 'undefined') {
+			var mode = (decodeURIComponent(C('cl_tocmode') || '').match(new RegExp(catType + ':([^,]+)', 'i')) || {})[1];
+			for (var i = 0, len = bodyClassList.length; i < len; i++){
+				if (bodyClassList[i] === 'map') { mode = undefined; }
+			}
+			if (mode) { bodyClassList.push(mode); }
+		}
+		b.className = bodyClassList.join(' ');
+	}());
+--></script>
+    
+    <article id="pagecontainer">
+        @RenderBody()
+
+        <footer>
+
+            <ul class="clfooter">
+                <li>&copy; 2014 <span class="desktop">craigslist</span><span class="mobile">CL</span></li>
+                <li><a href="//www.craigslist.org/about/help/">help</a></li>
+                <li><a href="//www.craigslist.org/about/scams">safety</a></li>
+                <li class="desktop"><a href="//www.craigslist.org/about/privacy.policy">privacy</a></li>
+                <li class="desktop"><a href="https://forums.craigslist.org/?forumID=8">feedback</a></li>
+                <li class="desktop"><a href="//www.craigslist.org/about/craigslist_is_hiring">cl jobs</a></li>
+                <li><a href="//www.craigslist.org/about/terms.of.use">terms</a></li>
+                <li><a href="//www.craigslist.org/about/">about</a></li>
+                <li class="fsel desktop" data-mode="mobile"><a href="#">mobile</a></li>
+                <li class="fsel mobile" data-mode="regular"><a href="#">desktop</a></li>
+            </ul>
+        </footer>
+    </article>
+    <script src="//www.craigslist.org/js/general-concat.min.js?v=a9f5927f6f654d255ece1f2651bc8768" type="text/javascript"></script>
+    <script type="text/javascript">
+<!--
+		var iframe = document.createElement('iframe');
+		iframe.style.display = 'none';
+		iframe.src = '//www.' + CL.url.baseDomain + '/static/localstorage.html?v=df3e26b8dc7dec459e3415594e32b1a3';
+		document.body.insertBefore(iframe, null);
+	--></script>
+    <script src="//www.craigslist.org/js/leaflet-concat.min.js?v=9089066fcf5707e3288dee25d9bb2849" type="text/javascript"></script>
+    <script src="//www.craigslist.org/js/sites_page_maps.min.js?v=252a95dd5212b7c3c4f6fcdf74c0836c" type="text/javascript"></script>
+</body>
+</html>
+
